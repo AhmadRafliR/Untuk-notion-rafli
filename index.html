@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3 Column Objects with Hover Buttons</title>
+  <style>
+    /* Import pixel style monospace font similar to the image */
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', monospace;
+      background: #fff;
+      color: #333;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      user-select: none;
+      padding: 32px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Container for the cards */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 1200px;
+      width: 100%;
+    }
+    @media(min-width: 768px) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Card styling */
+    .card {
+      background: #fff;
+      box-shadow: 0 16px 24px rgba(0,0,0,0.12);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+      cursor: pointer;
+    }
+
+    /* Icon image */
+    .card img {
+      width: 96px;
+      height: 64px;
+      margin-bottom: 24px;
+      image-rendering: pixelated;
+    }
+
+    /* Title */
+    .card-title {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: #111111;
+      user-select: text;
+    }
+
+    /* Description text */
+    .card-desc {
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 1.6;
+      color: #666666;
+      margin-bottom: 40px;
+      user-select: text;
+      max-width: 270px;
+      white-space: pre-line;
+    }
+
+    /* Hover button container - hidden by default */
+    .action-btn {
+      position: absolute;
+      bottom: 24px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    /* Show button on card hover */
+    .card:hover .action-btn {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Button styling */
+    .action-btn a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #06b6d4;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 12px rgba(6,182,212,0.4);
+      user-select: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .action-btn a:hover,
+    .action-btn a:focus {
+      background: #0284c7;
+      box-shadow: 0 8px 24px rgba(2,132,199,0.7);
+      outline: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card" tabindex="0" aria-label="Airdrop card with description and button link">
+      <img 
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dee892ca-fe23-44ac-a107-fd6c2a799fb6.png" 
+        alt="Pixel art envelope with blue battery icon"
+      />
+      <div class="card-title">Airdrop</div>
+      <div class="card-desc">
+        bundling soal yang setiap harinya berisi 5-6 paket di mana berisikan catatan yang harus dicatat, soal yang harus dikerjakan, dan pembahasan untuk evaluasi soal yang diberikan.
+      </div>
+      <div class="action-btn" aria-hidden="true">
+        <a href="https://your-link-here.com" target="_blank" rel="noopener noreferrer" >Pelajari Lebih Lanjut</a>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" aria-label="Obat Fokus card with description and button link">
+      <img 
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/069ea27d-8f8c-4000-b3c1-02e905b5283b.png" 
+        alt="Pixel art envelope with blue battery icon"
+      />
+      <div class="card-title">Obat Fokus</div>
+      <div class="card-desc">
+        bundling artikel berbahasa Indonesia, umumnya berjumlah 20 artikel yang tujuannya untuk melatih fokus membaca, menambah informasi umum, serta meningkatkan kemampuan literasi.
+      </div>
+      <div class="action-btn" aria-hidden="true">
+        <a href="https://your-link-here.com" target="_blank" rel="noopener noreferrer" >Pelajari Lebih Lanjut</a>
+      </div>
+    </div>
+
+    <div class="card" tabindex="0" aria-label="Sarapan Inggris card with description and button link">
+      <img 
+        src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0b622d2e-5f5e-4476-949b-fbe167883080.png" 
+        alt="Pixel art envelope with blue battery icon"
+      />
+      <div class="card-title">Sarapan Inggris</div>
+      <div class="card-desc">
+        bundling artikel berbahasa Inggris, umumnya berjumlah 5-10 artikel yang untuk tujuannya meningkatkan kemampuan membaca, menambah informasi umum dan menambah kosa kata (vocab) dalam bahasa Inggris.
+      </div>
+      <div class="action-btn" aria-hidden="true">
+        <a href="https://your-link-here.com" target="_blank" rel="noopener noreferrer" >Pelajari Lebih Lanjut</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
